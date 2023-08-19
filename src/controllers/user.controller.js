@@ -1,11 +1,13 @@
 import UserModelDao from "../daos/user.dao.js";
 const userDao=new UserModelDao();
 
-export const registerUser=(req,res)=>{
+export const registerUser=async(req,res)=>{
     try {
+        let data = req.body;
+        await userDao.register(data)
        res.json({
         msg:"register ok",
-        session:req.session
+        session:req.session,
        })
     } catch (error) {
         console.log(error);
