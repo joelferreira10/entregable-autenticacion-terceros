@@ -5,7 +5,7 @@ export const registerUser=async(req,res)=>{
     try {
         let data = req.body;
         await userDao.register(data)
-       res.json({
+       res.send({
         msg:"register ok",
         session:req.session,
        })
@@ -15,11 +15,10 @@ export const registerUser=async(req,res)=>{
 }
 export const loginUser=async(req,res)=>{
     try {
-    const user=await userDao.getById(req.session.passport.user)
+    
    // console.log("userController",req.session.passport.user);
-    res.json({
+    res.send({
         msg:"login ok",
-        user
     })
     } catch (error) {
         console.log(error);
@@ -33,6 +32,7 @@ export const logout=(req,res)=>{
     })
 }
 
+
 export const githubResponse=async(req,res)=>{
     try {
         const {first_name,email,isGithub}=req.user;
@@ -45,5 +45,26 @@ export const githubResponse=async(req,res)=>{
         console.log(error);
     }
 }
+
+export const googleResponse = async (req, res, next) => {
+    try {
+      // console.log(req.user)
+      const { first_name, last_name, email, isGoogle } = req.user;
+      res.json({
+        msg: "Register/Login Google OK",
+        session: req.session,
+        userData: {
+          first_name,
+          last_name,
+          email,
+          isGoogle,
+        },
+      });
+    } catch (error) {
+      next(error.message);
+    }
+  };
+  
+
 
 

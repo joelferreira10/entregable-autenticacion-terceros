@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node .",
-    "dev":"nodemon ."
+    "dev": "nodemon ."
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "morgan": "^1.10.0",
     "passport": "^0.6.0",
     "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0"
   }
 }

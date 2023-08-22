@@ -8,7 +8,8 @@ const schema=new mongoose.Schema({
     email:{type:String,required:true,unique:true},
     age:{type:Number,required:true,default:0},
     password:{type:String, required:true},
-    isGithub:{type:Boolean,default:false}
+    isGithub:{type:Boolean,default:false},
+    isGoogle:{type:Boolean,default:false}
 })
 
 export const UsersModel=mongoose.model(colleccion,schema)

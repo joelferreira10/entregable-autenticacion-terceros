@@ -3,6 +3,11 @@ import { createHash,isValidPassword } from "../utils.js";
 
 
 export default class UserModelDao{
+   /**
+    * 
+    * @param {Object} user 
+    * @returns 
+    */
     async register(user){
      try {
         const {email}=user;
@@ -16,6 +21,12 @@ export default class UserModelDao{
      }       
 
     }
+
+    /**
+     * 
+     * @param {*} user 
+     * @returns 
+     */
     async login(user){
      try {
         const {email,password}=user
@@ -32,6 +43,11 @@ export default class UserModelDao{
      }   
     }
 
+    /**
+     * 
+     * @param {*} id 
+     * @returns 
+     */
     async getById(id){
       try {
          const user=UsersModel.findById(id)
